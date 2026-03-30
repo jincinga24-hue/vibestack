@@ -161,6 +161,12 @@ VCs can research your GitHub before roasting. They'll catch bluffs.
 roastmymvp run https://your-app.com --mode vc --github https://github.com/you
 ```
 
+### Harness engineering
+
+The autonomous coding loop is the most powerful part — and the one that needs the most understanding. When it gets stuck, when to reset context, how to tune pacing:
+
+**[docs/HARNESS-GUIDE.md](docs/HARNESS-GUIDE.md)** — full guide on how the loop works, what to do when it breaks, and how to tune it.
+
 ### Evolution
 
 The critics get better over time. Rate their feedback, and the good ones survive:
