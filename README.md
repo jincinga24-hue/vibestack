@@ -87,27 +87,53 @@ roastmymvp run https://your-app.com --mode vc \
 
 ## Skills
 
-### `/vibe-prep` — Interactive Preparation
+### Core Pipeline (3 stages)
 
-Guides you through project setup before autonomous coding begins.
+| Skill | Stage | What it does |
+|-------|-------|-------------|
+| `/validate-idea` | 0 | 6-step idea stress test (Socratic, first principles, business model, risk, multi-role panel, Occam's MVP) |
+| `/vibe-prep` | 1 | Interactive: validate idea → PRD → UI design → scaffold (calls /validate-idea) |
+| `/vibe-harness` | 2 | Autonomous: 15 generate/evaluate cycles with live dashboard |
+| `/roast-mvp` | 3 | Brutal: evolving VC panel + community personas roast your MVP |
 
-1. **Idea Validation** — Socratic questioning, first principles, business stress test
-2. **PRD** — Product requirements document with acceptance criteria
-3. **UI Design** — Layout, components, user flows
-4. **Scaffold** — Project structure, dependencies, boilerplate
+### Product Review Skills (from gstack)
 
-Every step requires your approval. Nothing happens without a "yes".
+| Skill | When to use |
+|-------|-------------|
+| `/office-hours` | YC-style forcing questions before you build anything |
+| `/plan-ceo-review` | CEO/founder-mode: rethink the problem, find the 10-star product |
+| `/plan-eng-review` | Eng manager-mode: lock architecture, data flow, edge cases |
+| `/plan-design-review` | Designer's eye: rate each dimension 0-10, fix the plan |
+| `/design-consultation` | Full design system: aesthetic, typography, color, layout |
 
-### `/vibe-harness` — Autonomous Coding Loop
+### Code Quality Skills (from gstack)
 
-Runs 15 generate/evaluate cycles with a live dashboard.
+| Skill | When to use |
+|-------|-------------|
+| `/review` | Pre-landing PR review: SQL safety, trust boundaries, side effects |
+| `/design-review` | Visual QA: find spacing issues, hierarchy problems, AI slop |
+| `/investigate` | Debug with root cause investigation (no fixes without root cause) |
+| `/cso` | Security audit: secrets, supply chain, OWASP Top 10, STRIDE |
 
-- Each cycle: read state → code → evaluate → decide (continue/fix/done)
-- Quality gates prevent shipping broken code
-- Live HTML dashboard tracks progress in real time
-- Produces `HARNESS-STATE.md` and `HARNESS-ANALYSIS.md`
+### Testing & QA Skills (from gstack)
 
-### `/roast-mvp` — Brutal Product Validation
+| Skill | When to use |
+|-------|-------------|
+| `/qa` | QA test a web app and fix bugs found |
+| `/qa-only` | Report-only QA (no fixes, just the report) |
+| `/browse` | Headless browser: navigate, interact, screenshot, verify |
+| `/connect-chrome` | Launch real Chrome controlled by Claude with live Side Panel |
+| `/benchmark` | Performance regression detection with Core Web Vitals |
+| `/canary` | Post-deploy monitoring for console errors and regressions |
+
+### Ship & Deploy Skills (from gstack)
+
+| Skill | When to use |
+|-------|-------------|
+| `/ship` | Merge base, run tests, review diff, bump version, push, create PR |
+| `/document-release` | Update all docs to match what shipped |
+
+### `/roast-mvp` Details
 
 Three modes powered by `roastmymvp` CLI:
 
@@ -151,35 +177,52 @@ roastmymvp evolve    # Run evolution cycle
 vibestack/
 ├── README.md
 ├── INSTALL.md
-├── skills/
-│   ├── vibe-prep/
-│   │   └── SKILL.md          # Interactive preparation
-│   ├── vibe-harness/
-│   │   ├── SKILL.md          # Autonomous coding loop
-│   │   ├── dashboard.html    # Live progress dashboard
+├── install.sh                 # One-line install script
+│
+├── skills/                    # 21 slash commands
+│   ├── validate-idea/         # /validate-idea — 6-step stress test
+│   ├── vibe-prep/             # /vibe-prep — interactive preparation
+│   ├── vibe-harness/          # /vibe-harness — autonomous coding loop
+│   │   ├── SKILL.md
+│   │   ├── dashboard.html     # Live progress dashboard
 │   │   └── launch-dashboard.sh
-│   └── roast-mvp/
-│       └── SKILL.md          # Brutal product validation
-├── roastmymvp/               # The roast engine (Python CLI)
+│   ├── roast-mvp/             # /roast-mvp — brutal product validation
+│   │
+│   ├── gstack-office-hours/   # YC-style forcing questions
+│   ├── gstack-plan-ceo-review/    # CEO review
+│   ├── gstack-plan-eng-review/    # Eng manager review
+│   ├── gstack-plan-design-review/ # Designer review
+│   ├── gstack-design-consultation/ # Full design system
+│   ├── gstack-design-review/  # Visual QA
+│   ├── gstack-review/         # PR code review
+│   ├── gstack-investigate/    # Root cause debugging
+│   ├── gstack-cso/            # Security audit
+│   ├── gstack-qa/             # QA + fix bugs
+│   ├── gstack-qa-only/        # QA report only
+│   ├── gstack-browse/         # Headless browser testing
+│   ├── gstack-connect-chrome/ # Real Chrome with Side Panel
+│   ├── gstack-benchmark/      # Performance regression
+│   ├── gstack-canary/         # Post-deploy monitoring
+│   ├── gstack-ship/           # Ship workflow
+│   └── gstack-document-release/ # Post-ship docs update
+│
+├── roastmymvp/                # The roast engine (Python CLI)
 │   ├── pyproject.toml
 │   ├── roastmymvp/
-│   │   ├── browser/          # Playwright page exploration
-│   │   ├── personas/         # 7 archetypes, irrationality injection
-│   │   ├── vc/               # 5 VC personas, kill shots
-│   │   ├── research/         # Reddit/HN scraping, persona factory
-│   │   ├── founder/          # GitHub/LinkedIn profiling, bluff detection
-│   │   ├── evolution/        # Gene pool, mutation, crossover
-│   │   ├── report/           # Markdown + PDF report generation
-│   │   ├── llm/              # Claude CLI + API backend
-│   │   └── cli.py            # Click CLI entry point
-│   └── tests/                # 150+ tests, 84%+ coverage
-├── templates/                # Example CLAUDE.md, config files
-│   ├── CLAUDE.md.example
-│   └── .ai-beta-test.yaml.example
+│   │   ├── browser/           # Playwright page exploration
+│   │   ├── personas/          # 7 archetypes, irrationality injection
+│   │   ├── vc/                # 5 VC personas, kill shots
+│   │   ├── research/          # Reddit/HN scraping, persona factory
+│   │   ├── founder/           # GitHub/LinkedIn profiling, bluff detection
+│   │   ├── evolution/         # Gene pool, mutation, crossover
+│   │   ├── report/            # Markdown + PDF report generation
+│   │   ├── llm/               # Claude CLI + API backend
+│   │   └── cli.py             # Click CLI entry point
+│   └── tests/                 # 150+ tests, 84%+ coverage
+│
 └── docs/
-    ├── ARCHITECTURE.md
-    ├── EVOLUTION.md           # How the gene pool works
-    └── EXAMPLES.md            # Sample roast reports
+    ├── ARCHITECTURE.md        # Full system diagram
+    └── EVOLUTION.md           # How the gene pool works
 ```
 
 ## Who This Is For

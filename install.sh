@@ -4,15 +4,14 @@ set -e
 echo "🚀 Installing vibestack..."
 echo ""
 
-# 1. Install skills
-echo "📦 Installing skills to ~/.claude/skills/..."
+# 1. Install all skills
+echo "📦 Installing 21 skills to ~/.claude/skills/..."
 mkdir -p ~/.claude/skills
-cp -r skills/vibe-prep ~/.claude/skills/
-cp -r skills/vibe-harness ~/.claude/skills/
-cp -r skills/roast-mvp ~/.claude/skills/
-echo "   ✅ /vibe-prep"
-echo "   ✅ /vibe-harness"
-echo "   ✅ /roast-mvp"
+for skill_dir in skills/*/; do
+  skill_name=$(basename "$skill_dir")
+  cp -r "$skill_dir" ~/.claude/skills/
+  echo "   ✅ $skill_name"
+done
 echo ""
 
 # 2. Install roastmymvp CLI
