@@ -9,7 +9,7 @@ echo "  ╚═══════════════════════
 echo ""
 
 # 1. Install all skills
-echo "📦 Installing 30 skills to ~/.claude/skills/..."
+echo "📦 Installing skills to ~/.claude/skills/..."
 mkdir -p ~/.claude/skills
 count=0
 for skill_dir in skills/*/; do

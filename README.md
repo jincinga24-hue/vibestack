@@ -10,6 +10,10 @@ Three commands. Zero hand-holding. Your prototype gets built autonomously, then 
 /roast-mvp      →  Evolving VC panel + real community personas destroy your MVP
 ```
 
+![RoastMyMVP Report Cover](docs/images/roast-cover.png)
+
+![VC Panel Roast](docs/images/roast-vc-panel.png)
+
 ---
 
 ## 5-Minute Demo
@@ -165,25 +169,29 @@ bash install.sh
 
 ### What Gets Installed
 
-**4 core pipeline skills** (the ones you'll use daily):
-- `/validate-idea` — 6-step idea stress test
-- `/vibe-prep` — Interactive project preparation
-- `/vibe-harness` — Autonomous coding loop
-- `/roast-mvp` — Brutal product validation
+**4 skills** (slash commands for Claude Code):
 
-**26 engineering skills** (from Everything Claude Code):
-- Testing: `tdd-workflow`, `python-testing`, `e2e-testing`, `verification-loop`
-- Quality: `coding-standards`, `python-patterns`, `security-review`, `security-scan`
-- Architecture: `api-design`, `frontend-patterns`, `backend-patterns`, `deployment-patterns`
-- AI/Agent: `agentic-engineering`, `autonomous-loops`, `eval-harness`, `cost-aware-llm-pipeline`
-- Post-ship: `content-engine`, `article-writing`, `investor-materials`, `market-research`
+| Skill | What it does |
+|-------|-------------|
+| `/validate-idea` | 6-step idea stress test before you write a line of code |
+| `/vibe-prep` | Interactive: idea → PRD → UI design → project scaffold |
+| `/vibe-harness` | Autonomous: 15 coding cycles with live dashboard |
+| `/roast-mvp` | Brutal: evolving VCs + real Reddit personas roast your MVP |
 
-**roastmymvp CLI** — the roast engine:
-- Playwright browser agent
-- 5 VC personas with evolving gene pool
-- Community personas from Reddit/HN
-- Founder profiling (GitHub scraping)
-- PDF report generation
+**roastmymvp CLI** (the roast engine):
+
+| Feature | Description |
+|---------|-------------|
+| Browser agent | Playwright crawls your site, extracts visible text, finds elements |
+| 5 VC personas | Shark, domain expert, pattern matcher, devil's advocate, angel |
+| Gene pool | VCs evolve — bad critics die, good ones breed (GEP-inspired) |
+| Real personas | Built from actual Reddit/HN comments, not generic templates |
+| Founder profiling | Scrapes your GitHub, cross-references pitch claims, catches bluffs |
+| PDF reports | Visual reports with scores, kill shots, UX bars, action plans |
+
+**Also recommended:**
+- [gstack](https://github.com/garrytan/gstack) — adds `/review`, `/qa`, `/ship`, `/browse` (code quality + QA)
+- [Everything Claude Code](https://github.com/nicobailey/everything-claude-code) — adds 65+ engineering pattern skills
 
 ---
 
