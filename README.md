@@ -1,165 +1,89 @@
 # vibestack
 
-**From idea to roasted MVP in one session.**
+**A step-by-step workflow for building projects with Claude Code.**
 
-Three commands. Zero hand-holding. Your prototype gets built autonomously, then brutally evaluated by evolving AI critics who scrape Reddit for real user opinions and check your GitHub to see if you're bluffing.
-
-```
-/vibe-prep      →  Validate idea, write PRD, design UI, scaffold
-/vibe-harness   →  15 autonomous coding cycles with live dashboard
-/roast-mvp      →  Evolving VC panel + real community personas destroy your MVP
-```
-
-![RoastMyMVP Report Cover](docs/images/roast-cover.png)
-
-![VC Panel Roast](docs/images/roast-vc-panel.png)
-
----
-
-## 5-Minute Demo
+You just installed Claude Code. Now what? vibestack gives you 4 slash commands that walk you through the entire process — from "I have an idea" to "is this actually good?"
 
 ```bash
-# Install (one time)
 git clone https://github.com/jincinga24-hue/vibestack.git
 cd vibestack && bash install.sh
-
-# In Claude Code — run the pipeline
-/vibe-prep                    # walks you through idea → PRD → UI → scaffold
-/vibe-harness                 # builds it autonomously (15 cycles)
-/roast-mvp                    # brutally roasts the result
-
-# Or roast any live URL directly
-roastmymvp run https://your-app.com --mode gauntlet --real -n 20
-```
-
-**What a VC roast looks like:**
-
-```
-🔥 STAGE 1: VC ROAST PANEL 🔥
-
-❌ Richard Zhao (Ruthless Capital): 8/100 — PASS
-   Kill shot: "You built a free resource for a shrinking audience of
-   ~30,000 students globally, with no monetization model — this isn't
-   a startup, it's a study group that accidentally bought a domain."
-   Grudging praise: "718ms load, zero JS errors. You ship. Most people don't."
-
-❌ Sarah Chen (Domain Ventures): 12/100 — PASS
-   Kill shot: "This is a static website, not a product — there is no
-   retention mechanism, no data flywheel, no network effect."
-
-🧬 Evolved VC (Gen 3) — Natural Selection Capital: 12/100
-   Kill shot: "This is a homework project you forgot to take down."
-
-💀 DESTROYED. Score: 14/100
-```
-
-**What community feedback looks like:**
-
-```
-Verdict: NO-GO | Download: 0% | Pay: 0% | Return: 40% | UX: 5.5/10
-
-Top Friction Points:
-- 47 of 53 navigation buttons hidden on load
-- Search is hidden — the core feature is invisible
-- "RStudio Basics — coming soon" listed as complete section
-- "© 2025" in footer signals abandonment
-
-What They Respected:
-- 695ms load, zero JS errors, 316KB total
-- Content taxonomy maps perfectly to actuarial syllabi
-- "Whoever built this knows the domain. That's not nothing."
 ```
 
 ---
 
-## How It's Different
+## The Workflow
 
-| | gstack | vibestack |
-|---|---|---|
-| **Focus** | Code review & QA roles | Full pipeline: idea → build → roast |
-| **Writing code** | You write, it reviews | It writes autonomously (15 cycles) |
-| **Product validation** | Manual review skills | Evolving AI personas + real Reddit data |
-| **Gets better over time** | Static skills | Gene pool evolves — bad critics die |
-| **Researches you** | No | Scrapes your GitHub, catches bluffs |
+### Step 1: You have an idea
 
-**vibestack complements gstack** — install both. Use gstack for `/review`, `/qa`, `/ship`, `/browse`. Use vibestack for the full idea-to-roast pipeline.
+Type `/validate-idea` in Claude Code.
 
----
+It asks you hard questions before you waste time building:
+- What problem are you solving?
+- Who has this problem?
+- What do they do today without your product?
+- Why would they switch?
+- What's the simplest version that proves the idea?
 
-## The Gauntlet
+You get a `VALIDATION-REPORT.md` with a go/no-go recommendation.
 
-```
-┌──────────────────┐     ┌───────────────────┐     ┌──────────────────┐
-│  STAGE 1: VC 🔥   │────▶│ STAGE 2: COMMUNITY│────▶│   CERTIFIED ✅    │
-│                  │     │                   │     │                  │
-│ 5 evolved VCs    │     │ 20 real personas  │     │ GOOD or GREAT    │
-│ Research founder │     │ from Reddit/HN    │     │                  │
-│ Score >= 40 to   │     │ PMF signals       │     │ PDF report       │
-│ pass             │     │ GO/NO-GO          │     │ generated        │
-│                  │     │                   │     │                  │
-│ FAIL = LOCKED 🔒  │     │ FAIL = 😤         │     │ PASS = 🏆        │
-└──────────────────┘     └───────────────────┘     └──────────────────┘
-```
+### Step 2: Plan and design
 
-If your product can't survive 5 AI VCs, it's not ready for real users.
-If it survives VCs but fails community testing, your UX needs work.
-If it passes both — ship it.
+Type `/vibe-prep`.
 
----
+It walks you through:
+- Writing a PRD (what to build, what NOT to build)
+- Designing the UI (layout, pages, components)
+- Setting up the project (dependencies, folder structure)
 
-## Evolution Engine
+Everything is interactive — it asks, you approve. Nothing gets written without your OK.
 
-Inspired by [EvoMap's Genome Evolution Protocol](https://evomap.ai/).
+You end up with `docs/PRD.md`, `docs/UI-DESIGN.md`, and a scaffolded project.
 
-The VCs aren't static. They **evolve**.
+### Step 3: Build it
 
-```
-Run roast → Rate critiques → Gene fitness updates → Evolve
-    ↑                                                  │
-    └─── Next run uses evolved critics ────────────────┘
-```
+Type `/vibe-harness`.
 
-- **Kill**: Bottom 20% fitness → dead, replaced by offspring
-- **Mutate**: Mid-tier genes get sharper kill questions
-- **Crossover**: Top 2 breed to create "Evolved VC (Gen N)"
-- **Persist**: Gene pool survives between runs in `memory/genes/`
+This is the autonomous part. Claude codes for you in a loop:
+- Reads the PRD and UI design
+- Writes code
+- Evaluates what it built
+- Fixes issues
+- Repeats (up to 15 cycles)
 
-```bash
-roastmymvp pool        # 🧬 25 alive, 1 dead, gen 3, avg fitness 0.51
-roastmymvp feedback    # Rate last run's critiques
-roastmymvp evolve      # Kill weak, mutate mid, breed top
-```
+A live dashboard opens in your browser so you can watch progress.
+
+You end up with a working prototype.
+
+### Step 4: Is it any good?
+
+Type `/roast-mvp`.
+
+This is the honest feedback part. It:
+1. Opens your site in a headless browser
+2. Reads everything a real user would see
+3. Runs simulated users against it who give brutally honest feedback
+4. Generates a report telling you what's broken, what's good, and what to fix
+
+You get a `FEEDBACK-REPORT.md` and optionally a PDF.
 
 ---
 
-## Founder Profiling
-
-VCs don't just look at your product. They **research you**.
-
-```bash
-roastmymvp run https://app.com --mode vc --github https://github.com/you
-```
+## That's It
 
 ```
-🔍 Researching founder...
-   ✅ Founder is technical: 13 repos, 56K stars
-   ⚠️  Recent activity: only 1 day — "Are you building this or just talking about it?"
-   ✅ Languages: Ruby, JavaScript, TypeScript
+/validate-idea    →  "Should I build this?"
+/vibe-prep        →  "OK, let's plan it properly"
+/vibe-harness     →  "Build it for me"
+/roast-mvp        →  "Be honest — is it good?"
 ```
 
-The VCs reference this intel in their roasts. If you claim "years of experience" but your GitHub is 6 months old, they'll catch it.
+For most projects, this takes one session.
 
 ---
 
 ## Install
 
-### Prerequisites
-
-- [Claude Code](https://claude.ai/code) installed
-- [gstack](https://github.com/garrytan/gstack) installed (recommended)
-- Python 3.12+
-
-### Quick Install
+**You need:** [Claude Code](https://claude.ai/code) installed + Python 3.12+
 
 ```bash
 git clone https://github.com/jincinga24-hue/vibestack.git
@@ -167,64 +91,106 @@ cd vibestack
 bash install.sh
 ```
 
-### What Gets Installed
-
-**4 skills** (slash commands for Claude Code):
-
-| Skill | What it does |
-|-------|-------------|
-| `/validate-idea` | 6-step idea stress test before you write a line of code |
-| `/vibe-prep` | Interactive: idea → PRD → UI design → project scaffold |
-| `/vibe-harness` | Autonomous: 15 coding cycles with live dashboard |
-| `/roast-mvp` | Brutal: evolving VCs + real Reddit personas roast your MVP |
-
-**roastmymvp CLI** (the roast engine):
-
-| Feature | Description |
-|---------|-------------|
-| Browser agent | Playwright crawls your site, extracts visible text, finds elements |
-| 5 VC personas | Shark, domain expert, pattern matcher, devil's advocate, angel |
-| Gene pool | VCs evolve — bad critics die, good ones breed (GEP-inspired) |
-| Real personas | Built from actual Reddit/HN comments, not generic templates |
-| Founder profiling | Scrapes your GitHub, cross-references pitch claims, catches bluffs |
-| PDF reports | Visual reports with scores, kill shots, UX bars, action plans |
-
-**Also recommended:**
-- [gstack](https://github.com/garrytan/gstack) — adds `/review`, `/qa`, `/ship`, `/browse` (code quality + QA)
-- [Everything Claude Code](https://github.com/nicobailey/everything-claude-code) — adds 65+ engineering pattern skills
+That's it. Open Claude Code in any project and the slash commands are available.
 
 ---
 
-## CLI Reference
+## Example: What the roast looks like
 
-```bash
-roastmymvp run <URL> [options]   # Run a roast
-roastmymvp evolve                # Evolve the gene pool
-roastmymvp feedback [run_id]     # Rate critiques
-roastmymvp pool                  # Gene pool status
+When you run `/roast-mvp` on a real site, you get feedback like this:
+
+```
+Verdict: NO-GO | UX: 5.5/10
+
+Top Issues:
+- 47 of 53 navigation buttons hidden on load — users can't find anything
+- Search bar is hidden — the core feature is invisible
+- "Coming soon" section listed alongside finished ones — feels incomplete
+- Footer says © 2025 — looks abandoned
+
+What They Liked:
+- 695ms load time — genuinely fast
+- Zero JS errors
+- Content structure is solid — "whoever built this knows the domain"
+
+Fix These First:
+1. Show search on the landing page
+2. Remove "coming soon" sections
+3. Update the copyright year
 ```
 
-| Flag | What it does |
-|------|-------------|
-| `--mode vc\|community\|gauntlet` | Testing mode |
-| `--real` | Build personas from real Reddit/HN users |
-| `-n 20` | Number of personas |
-| `--github <url>` | Founder's GitHub (VCs research you) |
-| `--pitch "<text>"` | Elevator pitch for VC mode |
-| `-t "<topic>"` | Search terms for real users |
-| `-s "<subreddit>"` | Specific subreddits to scrape |
-| `--competitor "<name>"` | Competitor for research |
+Real issues. Not generic advice. Things you can fix today.
+
+![Sample roast report](docs/images/roast-cover.png)
+
+---
+
+## Going Deeper
+
+Once you're comfortable with the basic workflow, there's more:
+
+### Roast modes
+
+```bash
+# Activate the CLI
+cd vibestack/roastmymvp && source .venv/bin/activate
+
+# Quick test — community feedback only
+roastmymvp run https://your-app.com
+
+# VC mode — 5 brutal investors roast your prototype
+roastmymvp run https://your-app.com --mode vc
+
+# Full gauntlet — must pass VCs to unlock community testing
+roastmymvp run https://your-app.com --mode gauntlet
+```
+
+### Real users from Reddit
+
+Instead of generic personas, build them from actual Reddit/HN discussions:
+
+```bash
+roastmymvp run https://your-app.com --real -n 20 -t "your topic" -s "your_subreddit"
+```
+
+### Founder profiling
+
+VCs can research your GitHub before roasting. They'll catch bluffs.
+
+```bash
+roastmymvp run https://your-app.com --mode vc --github https://github.com/you
+```
+
+### Evolution
+
+The critics get better over time. Rate their feedback, and the good ones survive:
+
+```bash
+roastmymvp feedback    # Rate critiques from last run
+roastmymvp evolve      # Bad critics die, good ones breed
+roastmymvp pool        # Check who survived
+```
+
+Details: [docs/EVOLUTION.md](docs/EVOLUTION.md)
+
+---
+
+## Also Recommended
+
+vibestack handles the idea-to-roast pipeline. For code review, QA, and shipping:
+
+- **[gstack](https://github.com/garrytan/gstack)** by Garry Tan — adds `/review`, `/qa`, `/ship`, `/browse`
+- **[Everything Claude Code](https://github.com/nicobailey/everything-claude-code)** — 65+ engineering pattern skills
+
+They complement vibestack. Install all three for the full setup.
 
 ---
 
 ## Credits
 
-- [gstack](https://github.com/garrytan/gstack) by Garry Tan — the skill pack that started it all
-- [EvoMap](https://evomap.ai/) — Genome Evolution Protocol inspiration
-- [Everything Claude Code](https://github.com/nicobailey/everything-claude-code) — engineering skill pack
-- Shanghai EvoMap hackathon team — Agent VC concept
+- [gstack](https://github.com/garrytan/gstack) — the skill pack that inspired this
+- [EvoMap](https://evomap.ai/) — evolution engine inspiration
+- [Everything Claude Code](https://github.com/nicobailey/everything-claude-code) — engineering skills
 - Claude Code by Anthropic
 
-## License
-
-MIT — fork it, improve it, make it yours.
+MIT License — fork it, improve it, share it.
