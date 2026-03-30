@@ -133,6 +133,47 @@ roastmymvp run https://your-app.com --mode vc \
 | `/ship` | Merge base, run tests, review diff, bump version, push, create PR |
 | `/document-release` | Update all docs to match what shipped |
 
+### Engineering Patterns (from Everything Claude Code)
+
+| Skill | Category |
+|-------|----------|
+| `tdd-workflow` | Test-driven development with 80%+ coverage |
+| `python-testing` | pytest strategies, fixtures, mocking |
+| `e2e-testing` | Playwright E2E patterns, Page Object Model |
+| `verification-loop` | Comprehensive verification before release |
+| `coding-standards` | TypeScript/JavaScript/React best practices |
+| `python-patterns` | Pythonic idioms, PEP 8, type hints |
+| `security-review` | Auth, input validation, OWASP patterns |
+| `security-scan` | Scan Claude Code config for vulnerabilities |
+| `api-design` | REST API patterns, status codes, pagination |
+| `frontend-patterns` | React, Next.js, state management |
+| `backend-patterns` | Node.js, Express, API routes |
+| `deployment-patterns` | CI/CD, Docker, health checks, rollback |
+| `database-migrations` | Schema changes, zero-downtime deploys |
+
+### AI & Agent Patterns (from Everything Claude Code)
+
+| Skill | Category |
+|-------|----------|
+| `agentic-engineering` | Eval-first execution, decomposition |
+| `autonomous-loops` | Sequential pipelines to multi-agent DAGs |
+| `continuous-agent-loop` | Quality gates, evals, recovery controls |
+| `cost-aware-llm-pipeline` | Model routing, budget tracking, caching |
+| `agent-harness-construction` | Optimize agent action spaces and tools |
+| `eval-harness` | Formal evaluation framework for sessions |
+| `continuous-learning-v2` | Instinct-based learning from sessions |
+| `search-first` | Research before coding, find existing tools |
+
+### Post-Ship (from Everything Claude Code)
+
+| Skill | Category |
+|-------|----------|
+| `content-engine` | Multi-platform content (X, LinkedIn, TikTok, YouTube) |
+| `article-writing` | Blog posts, tutorials, newsletters |
+| `investor-materials` | Pitch decks, one-pagers, financial models |
+| `investor-outreach` | Cold emails, warm intros, follow-ups |
+| `market-research` | Competitive analysis, market sizing |
+
 ### `/roast-mvp` Details
 
 Three modes powered by `roastmymvp` CLI:
