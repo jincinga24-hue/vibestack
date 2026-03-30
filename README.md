@@ -1,103 +1,10 @@
 # vibestack
 
-**A step-by-step workflow for building projects with Claude Code.**
+**Go from "I have an idea" to a working, tested prototype — without writing code yourself.**
 
-You just installed Claude Code. Now what? vibestack gives you 4 slash commands that walk you through the entire process — from "I have an idea" to "is this actually good?"
+vibestack is a set of 4 commands for [Claude Code](https://claude.ai/code) (Anthropic's AI coding tool). You describe what you want to build, and it plans, builds, and then honestly tells you if it's any good.
 
-```bash
-git clone https://github.com/jincinga24-hue/vibestack.git
-cd vibestack && bash install.sh
-```
-
----
-
-## The Workflow
-
-### Step 1: You have an idea
-
-Type `/validate-idea` in Claude Code.
-
-It asks you hard questions before you waste time building:
-- What problem are you solving?
-- Who has this problem?
-- What do they do today without your product?
-- Why would they switch?
-- What's the simplest version that proves the idea?
-
-You get a `VALIDATION-REPORT.md` with a go/no-go recommendation.
-
-### Step 2: Plan and design
-
-Type `/vibe-prep`.
-
-It walks you through:
-- Writing a PRD (what to build, what NOT to build)
-- Designing the UI (layout, pages, components)
-- Setting up the project (dependencies, folder structure)
-
-Everything is interactive — it asks, you approve. Nothing gets written without your OK.
-
-You end up with `docs/PRD.md`, `docs/UI-DESIGN.md`, and a scaffolded project.
-
-### Step 3: Build it
-
-Type `/vibe-harness`.
-
-This is the autonomous part. Claude codes for you in a loop:
-- Reads the PRD and UI design
-- Writes code
-- Evaluates what it built
-- Fixes issues
-- Repeats (up to 15 cycles)
-
-A live dashboard opens in your browser so you can watch progress.
-
-You end up with a working prototype.
-
-### Step 4: Is it any good?
-
-Type `/roast-mvp`.
-
-This is the honest feedback part. It:
-1. Opens your site in a headless browser
-2. Reads everything a real user would see
-3. Runs simulated users against it who give brutally honest feedback
-4. Generates a report telling you what's broken, what's good, and what to fix
-
-You get a `FEEDBACK-REPORT.md` and optionally a PDF.
-
----
-
-## That's It
-
-```
-/validate-idea    →  "Should I build this?"
-/vibe-prep        →  "OK, let's plan it properly"
-/vibe-harness     →  "Build it for me"
-/roast-mvp        →  "Be honest — is it good?"
-```
-
-For most projects, this takes one session.
-
----
-
-## Install
-
-**You need:** [Claude Code](https://claude.ai/code) installed + Python 3.12+
-
-```bash
-git clone https://github.com/jincinga24-hue/vibestack.git
-cd vibestack
-bash install.sh
-```
-
-That's it. Open Claude Code in any project and the slash commands are available.
-
----
-
-## Example: What the roast looks like
-
-When you run `/roast-mvp` on a real site, you get feedback like this:
+Here's what the honest feedback looks like:
 
 ```
 Verdict: NO-GO | UX: 5.5/10
@@ -106,97 +13,247 @@ Top Issues:
 - 47 of 53 navigation buttons hidden on load — users can't find anything
 - Search bar is hidden — the core feature is invisible
 - "Coming soon" section listed alongside finished ones — feels incomplete
-- Footer says © 2025 — looks abandoned
 
 What They Liked:
 - 695ms load time — genuinely fast
 - Zero JS errors
-- Content structure is solid — "whoever built this knows the domain"
+- "Whoever built this knows the domain. That's not nothing."
 
 Fix These First:
 1. Show search on the landing page
-2. Remove "coming soon" sections
+2. Remove incomplete sections
 3. Update the copyright year
 ```
 
-Real issues. Not generic advice. Things you can fix today.
+That's from real AI personas testing a real site. Not generic advice — specific issues you can fix today.
 
 ![Sample roast report](docs/images/roast-cover.png)
 
 ---
 
-## Going Deeper
+## Before You Start
 
-Once you're comfortable with the basic workflow, there's more:
+You need two things:
 
-### Roast modes
+1. **Claude Code** — Anthropic's AI coding tool that runs in your terminal
+   - Install: `npm install -g @anthropic-ai/claude-code`
+   - Or download from [claude.ai/code](https://claude.ai/code)
+   - This is what you'll actually type commands into
+
+2. **Python 3.12+** — needed for the roast engine
+   - Check: `python3 --version`
+   - Mac: `brew install python` (if you don't have it)
+   - Windows: download from [python.org](https://python.org)
+
+**Don't have Claude Code yet?** Get it first. vibestack is a set of tools that run inside it.
+
+---
+
+## Install vibestack
 
 ```bash
-# Activate the CLI
+git clone https://github.com/jincinga24-hue/vibestack.git
+cd vibestack
+bash install.sh
+```
+
+The installer copies 4 slash commands into Claude Code and sets up the roast engine. Takes about 60 seconds.
+
+---
+
+## How to Use It
+
+Open your terminal. Navigate to an empty folder (or an existing project). Start Claude Code:
+
+```bash
+mkdir my-new-project && cd my-new-project
+claude
+```
+
+You're now in Claude Code. It looks like a chat in your terminal. This is where you type the slash commands.
+
+### Step 1: "Should I build this?"
+
+Type:
+```
+/validate-idea
+```
+
+Claude asks you hard questions:
+- What problem are you solving?
+- Who has this problem?
+- What do they do today without your product?
+- Why would they switch?
+
+It's trying to stop you from building something nobody wants. At the end, you get a `VALIDATION-REPORT.md` with a go/no-go recommendation.
+
+**Takes about 5-10 minutes of back-and-forth.**
+
+### Step 2: "Let's plan it"
+
+Type:
+```
+/vibe-prep
+```
+
+Claude walks you through:
+1. Writing a PRD — what you're building, what you're NOT building
+2. Designing the UI — pages, layout, what goes where
+3. Scaffolding the project — folders, dependencies, boilerplate
+
+It asks your opinion at every step. Nothing gets finalized without you saying "yes".
+
+**Takes about 10-15 minutes. You end up with `docs/PRD.md`, `docs/UI-DESIGN.md`, and a project ready to code.**
+
+### Step 3: "Build it for me"
+
+Type:
+```
+/vibe-harness
+```
+
+Now Claude codes autonomously. It:
+1. Reads the PRD and UI design you just approved
+2. Writes code
+3. Tests if it works
+4. Fixes issues
+5. Repeats (up to 15 cycles)
+
+A live dashboard opens in your browser showing progress. You can watch or go make coffee.
+
+**Takes 20-60 minutes depending on complexity. You end up with a working prototype.**
+
+### Step 4: "Is it any good?"
+
+Type:
+```
+/roast-mvp
+```
+
+Claude opens your site in a browser, reads what users would see, and runs simulated users against it. Each persona has different patience, tech level, and expectations. They give honest feedback.
+
+**Takes 5-10 minutes. You get a report with specific issues and what to fix first.**
+
+---
+
+## That's the whole workflow
+
+```
+/validate-idea    →  Should I build this?           (5 min)
+/vibe-prep        →  Plan it properly               (10 min)
+/vibe-harness     →  Build it autonomously           (20-60 min)
+/roast-mvp        →  Get honest feedback             (5 min)
+```
+
+You can also skip steps:
+- **Have an existing project?** Skip to Step 3 or 4
+- **Already built something?** Go straight to `/roast-mvp`
+- **Just want feedback on a live site?** Use the CLI directly (see below)
+
+---
+
+## FAQ
+
+**Do I need an API key?**
+No. vibestack uses your Claude Code subscription. No extra costs.
+
+**Does it cost money?**
+Only your Claude Code subscription (which you already have if you installed it).
+
+**What languages/frameworks does it support?**
+Anything. It reads your PRD and builds with whatever stack you chose. React, Python, Swift, Go — whatever.
+
+**Can I use it on a project I already started?**
+Yes. Skip to `/vibe-harness` (add a `docs/PRD.md` first so it knows what to build) or go straight to `/roast-mvp` to test what you have.
+
+**The harness got stuck / keeps failing on the same bug. What do I do?**
+See [docs/HARNESS-GUIDE.md](docs/HARNESS-GUIDE.md). Short answer: let the session end and start a new one. It picks up where it left off.
+
+**Can I roast any website, not just my own?**
+Yes:
+```bash
+cd vibestack/roastmymvp && source .venv/bin/activate
+roastmymvp run https://any-website.com
+```
+
+**How is this different from just chatting with Claude?**
+Claude Code without vibestack is a blank canvas — you have to know what to ask. vibestack gives you a structured process: validate → plan → build → test. Each step feeds into the next.
+
+---
+
+## Going Deeper
+
+Once you've done the basic workflow a few times:
+
+### Roast any URL from the terminal
+
+```bash
 cd vibestack/roastmymvp && source .venv/bin/activate
 
-# Quick test — community feedback only
+# Community feedback
 roastmymvp run https://your-app.com
 
-# VC mode — 5 brutal investors roast your prototype
+# VC mode — 5 brutal investors roast your product
 roastmymvp run https://your-app.com --mode vc
 
-# Full gauntlet — must pass VCs to unlock community testing
+# Full gauntlet — must survive VCs to unlock community testing
 roastmymvp run https://your-app.com --mode gauntlet
 ```
 
-### Real users from Reddit
+### Real personas from Reddit
 
-Instead of generic personas, build them from actual Reddit/HN discussions:
+Build test personas from actual Reddit/HN discussions instead of generic ones:
 
 ```bash
-roastmymvp run https://your-app.com --real -n 20 -t "your topic" -s "your_subreddit"
+roastmymvp run https://your-app.com --real -n 20 -t "your topic" -s "relevant_subreddit"
 ```
 
-### Founder profiling
+### VCs research your GitHub
 
-VCs can research your GitHub before roasting. They'll catch bluffs.
+They'll check if you're bluffing about your experience:
 
 ```bash
 roastmymvp run https://your-app.com --mode vc --github https://github.com/you
 ```
 
-### Harness engineering
+### The critics evolve
 
-The autonomous coding loop is the most powerful part — and the one that needs the most understanding. When it gets stuck, when to reset context, how to tune pacing:
-
-**[docs/HARNESS-GUIDE.md](docs/HARNESS-GUIDE.md)** — full guide on how the loop works, what to do when it breaks, and how to tune it.
-
-### Evolution
-
-The critics get better over time. Rate their feedback, and the good ones survive:
+Rate which feedback was useful. Bad critics die. Good ones breed.
 
 ```bash
 roastmymvp feedback    # Rate critiques from last run
-roastmymvp evolve      # Bad critics die, good ones breed
-roastmymvp pool        # Check who survived
+roastmymvp evolve      # Evolution cycle
+roastmymvp pool        # See who survived
 ```
 
-Details: [docs/EVOLUTION.md](docs/EVOLUTION.md)
+### Harness engineering
+
+When the autonomous coding loop gets stuck, needs tuning, or you want to understand how it works:
+
+**[docs/HARNESS-GUIDE.md](docs/HARNESS-GUIDE.md)**
+
+### How the evolution engine works
+
+**[docs/EVOLUTION.md](docs/EVOLUTION.md)**
 
 ---
 
 ## Also Recommended
 
-vibestack handles the idea-to-roast pipeline. For code review, QA, and shipping:
+vibestack handles idea → build → test. For code review, QA, and shipping, add:
 
 - **[gstack](https://github.com/garrytan/gstack)** by Garry Tan — adds `/review`, `/qa`, `/ship`, `/browse`
-- **[Everything Claude Code](https://github.com/nicobailey/everything-claude-code)** — 65+ engineering pattern skills
+- **[Everything Claude Code](https://github.com/nicobailey/everything-claude-code)** — 65+ engineering skills
 
-They complement vibestack. Install all three for the full setup.
+They work alongside vibestack.
 
 ---
 
 ## Credits
 
-- [gstack](https://github.com/garrytan/gstack) — the skill pack that inspired this
+- [gstack](https://github.com/garrytan/gstack) by Garry Tan
 - [EvoMap](https://evomap.ai/) — evolution engine inspiration
-- [Everything Claude Code](https://github.com/nicobailey/everything-claude-code) — engineering skills
+- [Everything Claude Code](https://github.com/nicobailey/everything-claude-code)
 - Claude Code by Anthropic
 
-MIT License — fork it, improve it, share it.
+MIT License
