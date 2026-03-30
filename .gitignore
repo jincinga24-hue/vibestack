@@ -25,3 +25,5 @@ report*.html
 # IDE
 .vscode/
 .idea/
+skills/gstack-browse/dist/browse
+skills/gstack-browse/dist/find-browse
