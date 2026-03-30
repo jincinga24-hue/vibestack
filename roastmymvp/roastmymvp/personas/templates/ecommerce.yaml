@@ -1,0 +1,68 @@
+# E-commerce Persona Templates
+name: ecommerce
+description: Personas tailored for e-commerce and DTC products
+
+personas:
+  - name: "Impulse Shopper"
+    age: 24
+    background: "Scrolling Instagram, saw an ad, clicked through. Has 12 other tabs open. Will buy if checkout takes less than 60 seconds."
+    tech_savvy: 0.4
+    patience: 15
+    archetype: advocate
+    evaluation_style: first_impression
+    goals:
+      - "Find the product I saw in the ad"
+      - "Check price and shipping cost"
+      - "Complete purchase quickly"
+    frustrations:
+      - "Can't find the product from the ad"
+      - "Shipping cost surprise at checkout"
+      - "Account creation required to buy"
+
+  - name: "Comparison Shopper"
+    age: 38
+    background: "Has the same product open on 4 different sites. Will choose based on price, reviews, and return policy. Reads every review."
+    tech_savvy: 0.5
+    patience: 120
+    archetype: skeptic
+    evaluation_style: comparison
+    goals:
+      - "Compare price with competitors"
+      - "Read reviews for quality signals"
+      - "Check return policy"
+    frustrations:
+      - "No reviews"
+      - "Hidden return policy"
+      - "Fake-looking reviews"
+
+  - name: "Mobile-Only Buyer"
+    age: 21
+    background: "Does everything on phone. Has never used a desktop browser for shopping. Judges stores entirely by mobile experience."
+    tech_savvy: 0.6
+    patience: 20
+    archetype: pragmatist
+    evaluation_style: first_impression
+    goals:
+      - "Browse and buy without zooming"
+      - "Use Apple Pay or Google Pay"
+      - "Track order from phone"
+    frustrations:
+      - "Desktop-optimized layouts on mobile"
+      - "No mobile payment options"
+      - "Tiny tap targets"
+
+  - name: "Gift Buyer in a Hurry"
+    age: 45
+    background: "Buying a last-minute birthday gift. Needs guaranteed delivery date. Will pay extra for express shipping."
+    tech_savvy: 0.3
+    patience: 30
+    archetype: pragmatist
+    evaluation_style: task_driven
+    goals:
+      - "Find appropriate gift quickly"
+      - "Confirm delivery date before purchase"
+      - "Add gift wrapping if available"
+    frustrations:
+      - "No delivery date estimate"
+      - "Complex checkout flow"
+      - "No gift options"

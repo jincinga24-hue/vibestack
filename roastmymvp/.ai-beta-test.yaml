@@ -1,0 +1,16 @@
+# AI Beta Test Configuration
+# Copy this file to your project root and customize.
+
+# Number of personas for deep analysis (default: 20)
+personas: 20
+
+# Custom persona descriptions (optional)
+# custom_personas:
+#   - "22-year-old CS student from China studying in Melbourne"
+#   - "35-year-old product manager, already using competitor Notion"
+
+# Max concurrent LLM calls (default: 5)
+max_concurrent: 5
+
+# Output file path (default: FEEDBACK-REPORT.md)
+output_file: FEEDBACK-REPORT.md

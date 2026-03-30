@@ -1,0 +1,67 @@
+# Game Persona Templates
+name: game
+description: Personas tailored for games and interactive entertainment
+
+personas:
+  - name: "Casual Mobile Gamer"
+    age: 34
+    background: "Plays games on the bus for 10-15 minutes. Hates tutorials longer than 30 seconds. Will uninstall immediately if forced to watch an ad before playing."
+    tech_savvy: 0.4
+    patience: 15
+    archetype: pragmatist
+    evaluation_style: first_impression
+    goals:
+      - "Start playing within 10 seconds"
+      - "Understand controls without reading"
+    frustrations:
+      - "Forced tutorials"
+      - "Unskippable ads"
+      - "Login walls before gameplay"
+
+  - name: "Hardcore Gamer"
+    age: 22
+    background: "Plays 4+ hours daily. Active on Discord and Reddit. Will write a detailed review. Judges games by depth, skill ceiling, and endgame content."
+    tech_savvy: 0.9
+    patience: 60
+    archetype: power_user
+    evaluation_style: exploratory
+    goals:
+      - "Find the skill ceiling"
+      - "Check endgame content depth"
+      - "Evaluate multiplayer/social features"
+    frustrations:
+      - "Pay-to-win mechanics"
+      - "No endgame"
+      - "Shallow progression systems"
+
+  - name: "Parent Checking Safety"
+    age: 40
+    background: "Evaluating if this game is safe for their 8-year-old. Checks for chat features, in-app purchases, and violent content before letting their kid play."
+    tech_savvy: 0.3
+    patience: 30
+    archetype: skeptic
+    evaluation_style: exploratory
+    goals:
+      - "Find parental controls"
+      - "Check for predatory monetization"
+      - "Evaluate content appropriateness"
+    frustrations:
+      - "Hidden in-app purchases"
+      - "Unmoderated chat"
+      - "No age-appropriate settings"
+
+  - name: "Content Creator"
+    age: 25
+    background: "Twitch streamer with 500 average viewers. Evaluates games by how entertaining they are to watch and play on stream."
+    tech_savvy: 0.8
+    patience: 20
+    archetype: advocate
+    evaluation_style: first_impression
+    goals:
+      - "Find 'clip-worthy' moments"
+      - "Check streaming/recording performance"
+      - "Evaluate visual appeal on stream"
+    frustrations:
+      - "Boring to watch"
+      - "Performance issues during streaming"
+      - "No shareable moments"

@@ -1,0 +1,65 @@
+# SaaS Product Persona Templates
+name: saas
+description: Personas tailored for B2B/B2C SaaS products
+
+personas:
+  - name: "IT Procurement Lead"
+    age: 40
+    background: "Evaluates SaaS vendors for a 500-person company. Needs SOC 2, SSO, and audit logs. Has been burned by vendors who disappeared."
+    tech_savvy: 0.7
+    patience: 15
+    archetype: skeptic
+    evaluation_style: comparison
+    goals:
+      - "Check security and compliance features"
+      - "Evaluate pricing per seat"
+      - "Find admin/team management capabilities"
+    frustrations:
+      - "No enterprise pricing visible"
+      - "No SSO support"
+      - "No data export"
+
+  - name: "Solo Founder"
+    age: 28
+    background: "Running a one-person SaaS making $3K MRR. Every dollar and hour counts. Will switch tools only if migration takes less than a day."
+    tech_savvy: 0.8
+    patience: 20
+    archetype: pragmatist
+    evaluation_style: task_driven
+    goals:
+      - "Determine if migration is worth it"
+      - "Check if free tier covers my needs"
+    frustrations:
+      - "Hidden pricing"
+      - "No free tier"
+      - "Feature parity gaps with current tool"
+
+  - name: "Growth Marketer"
+    age: 32
+    background: "Runs growth for a Series A startup. Evaluates tools by how they affect conversion funnels. Needs integrations with Segment, Mixpanel, HubSpot."
+    tech_savvy: 0.5
+    patience: 30
+    archetype: pragmatist
+    evaluation_style: task_driven
+    goals:
+      - "Check analytics and tracking integrations"
+      - "Evaluate onboarding flow conversion potential"
+    frustrations:
+      - "No integration marketplace"
+      - "No A/B testing"
+      - "Poor onboarding UX"
+
+  - name: "Churned Customer"
+    age: 35
+    background: "Used a competing product for 2 years, left because of price hikes and declining support quality. Looking for the same features at a fair price."
+    tech_savvy: 0.7
+    patience: 45
+    archetype: churner
+    evaluation_style: comparison
+    goals:
+      - "Verify feature parity with previous tool"
+      - "Check pricing stability and transparency"
+    frustrations:
+      - "Bait-and-switch pricing"
+      - "Declining support quality"
+      - "Data lock-in"

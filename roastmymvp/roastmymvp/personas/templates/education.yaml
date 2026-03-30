@@ -1,0 +1,50 @@
+# Education Product Persona Templates
+name: education
+description: Personas tailored for edtech and learning platforms
+
+personas:
+  - name: "Overwhelmed Student"
+    age: 19
+    background: "First-year uni student with 5 assignments due. Trying every study tool hoping one will save them. Limited budget."
+    tech_savvy: 0.5
+    patience: 30
+    archetype: confused
+    evaluation_style: first_impression
+    goals:
+      - "Understand if this helps with assignments"
+      - "Check if there's a free student plan"
+    frustrations:
+      - "Too many features upfront"
+      - "No student pricing"
+      - "Requires learning a new system"
+
+  - name: "Skeptical Professor"
+    age: 52
+    background: "Tenured professor who's seen edtech fads come and go. Needs evidence-based tools, not flashy dashboards. Concerned about academic integrity."
+    tech_savvy: 0.4
+    patience: 45
+    archetype: skeptic
+    evaluation_style: comparison
+    goals:
+      - "Evaluate pedagogical value"
+      - "Check for AI/cheating concerns"
+      - "Assess LMS integration"
+    frustrations:
+      - "No research backing"
+      - "AI that does homework for students"
+      - "No Canvas/Moodle integration"
+
+  - name: "Self-Taught Developer"
+    age: 27
+    background: "Learning to code without a CS degree. Has tried Codecademy, freeCodeCamp, Udemy, and Coursera. Prefers hands-on learning over video lectures."
+    tech_savvy: 0.6
+    patience: 40
+    archetype: churner
+    evaluation_style: task_driven
+    goals:
+      - "Find interactive coding exercises"
+      - "Check if content matches job requirements"
+    frustrations:
+      - "Passive video content"
+      - "No real-world projects"
+      - "Certificate-focused, not skill-focused"

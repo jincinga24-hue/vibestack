@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environment
+.venv/
+venv/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+
+# Secrets
+.env
+*.key
+
+# Test artifacts
+/tmp/
+screenshots/
+*.png
+*.jpg
+
+# Session data
+.ai-beta-test-session/
