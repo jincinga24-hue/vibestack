@@ -1,8 +1,10 @@
 # vibestack
 
-**Go from "I have an idea" to a working, tested prototype — without writing code yourself.**
+**Go from "I have an idea" to a deployed, monitored MVP — without writing code yourself.**
 
-vibestack is a set of 4 commands for [Claude Code](https://claude.ai/code) (Anthropic's AI coding tool). You describe what you want to build, and it plans, builds, and then honestly tells you if it's any good.
+vibestack is a set of 5 commands for [Claude Code](https://claude.ai/code) (Anthropic's AI coding tool). Type `/vibe` and it walks you through a 9-stage pipeline: validate your idea, design it, plan it, build it with TDD, QA it, get it roasted by AI personas, ship it, and monitor it.
+
+You can also run each stage individually if you prefer.
 
 Here's what the honest feedback looks like:
 
@@ -57,7 +59,7 @@ cd vibestack
 bash install.sh
 ```
 
-The installer copies 4 slash commands into Claude Code and sets up the roast engine. Takes about 60 seconds.
+The installer copies 5 slash commands into Claude Code and sets up the roast engine. Takes about 60 seconds.
 
 ---
 
@@ -71,6 +73,62 @@ claude
 ```
 
 You're now in Claude Code. It looks like a chat in your terminal. This is where you type the slash commands.
+
+### The Easy Way: `/vibe`
+
+Type:
+```
+/vibe
+```
+
+This is the **unified pipeline**. It shows you a 9-stage menu and walks you through everything:
+
+```
+/vibe
+
+Pipeline: New Project
+Status: Fresh — no pipeline state found
+
+  1. Validate        [pending]  <-- start here
+  2. Brainstorm       [pending]
+  3. Vibe Prep        [pending]
+  4. Plan             [pending]
+  5. Build            [pending]
+  6. QA + Design      [pending]
+  7. Roast            [pending]
+  8. Ship             [pending]
+  9. Monitor          [pending]
+
+> Enter stage number, or press Enter to start from stage 1:
+```
+
+Each stage invokes the right skill automatically. Progress is saved in `VIBE-STATE.md` so you can stop and resume anytime. You can jump to any stage from the menu.
+
+**What happens at each stage:**
+
+| Stage | What It Does | Time |
+|-------|-------------|------|
+| 1. Validate | YC-style forcing questions + structured idea validation | 5-10 min |
+| 2. Brainstorm | Design spec with multiple approaches explored | 10-15 min |
+| 3. Vibe Prep | PRD, UI design, architecture, project scaffold | 10-15 min |
+| 4. Plan | Detailed implementation plan with TDD steps | 5-10 min |
+| 5. Build | Autonomous 15+ cycle coding with TDD + code review every cycle | 30-60 min |
+| 6. QA + Design | Browser-based QA testing + visual polish | 10-20 min |
+| 7. Roast | AI personas stress-test your MVP (auto-loops to Build if score < 6) | 5-10 min |
+| 8. Ship | Create PR + deploy | 5 min |
+| 9. Monitor | Continuous canary monitoring until you stop it | Ongoing |
+
+**Key features:**
+- TDD and code review injected into every build cycle
+- Roast auto-loops back to Build if score is below 6/10
+- Integrates with [gstack](https://github.com/garrytan/gstack) for QA, design review, shipping, and monitoring
+- Integrates with [superpowers](https://github.com/obra/superpowers) for brainstorming, planning, and TDD
+
+---
+
+### Or Run Steps Individually
+
+If you prefer to run stages manually, here are the individual commands:
 
 ### Step 1: "Should I build this?"
 
@@ -138,6 +196,12 @@ Claude opens your site in a browser, reads what users would see, and runs simula
 
 ## That's the whole workflow
 
+**Unified (recommended):**
+```
+/vibe             →  Full 9-stage pipeline with menu  (1-2 hours total)
+```
+
+**Individual commands:**
 ```
 /validate-idea    →  Should I build this?           (5 min)
 /vibe-prep        →  Plan it properly               (10 min)
@@ -146,7 +210,7 @@ Claude opens your site in a browser, reads what users would see, and runs simula
 ```
 
 You can also skip steps:
-- **Have an existing project?** Skip to Step 3 or 4
+- **Have an existing project?** Type `/vibe` and jump to any stage from the menu
 - **Already built something?** Go straight to `/roast-mvp`
 - **Just want feedback on a live site?** Use the CLI directly (see below)
 
@@ -238,14 +302,15 @@ When the autonomous coding loop gets stuck, needs tuning, or you want to underst
 
 ---
 
-## Also Recommended
+## Recommended Companions
 
-vibestack handles idea → build → test. For code review, QA, and shipping, add:
+The `/vibe` unified pipeline integrates with these tools at stages 2, 4-9. Install them for the full experience:
 
-- **[gstack](https://github.com/garrytan/gstack)** by Garry Tan — adds `/review`, `/qa`, `/ship`, `/browse`
-- **[Everything Claude Code](https://github.com/nicobailey/everything-claude-code)** — 65+ engineering skills
+- **[gstack](https://github.com/garrytan/gstack)** by Garry Tan — QA, design review, shipping, deploy, canary monitoring (stages 6-9)
+- **[superpowers](https://github.com/obra/superpowers)** — brainstorming, planning, TDD, code review (stages 2, 4-5)
+- **[Everything Claude Code](https://github.com/nicobailey/everything-claude-code)** — 100+ engineering skills
 
-They work alongside vibestack.
+Without these, `/vibe` still works but will skip the stages that require them. The individual commands (`/vibe-prep`, `/vibe-harness`, `/roast-mvp`) work standalone.
 
 ---
 
