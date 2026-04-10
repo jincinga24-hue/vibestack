@@ -90,8 +90,11 @@ Write the PRD **with the user**:
 
 ## MVP Features (v1)
 1. [feature 1]
+   - **Acceptance criteria:** [what does "done" look like? specific pass/fail condition]
 2. [feature 2]
+   - **Acceptance criteria:** [measurable pass/fail]
 3. [feature 3]
+   - **Acceptance criteria:** [measurable pass/fail]
 
 ## Success Metrics
 - [from validation]
@@ -103,18 +106,48 @@ Write the PRD **with the user**:
 - [chosen stack]
 ```
 
-4. Show the PRD: **"Here's the PRD. Anything to change?"**
-5. Edit until user says it's good.
+4. For each MVP feature, ask: **"What does 'done' look like for this feature? Give me a specific pass/fail condition."** (e.g. "User can log a poop and see it appear in the history list" not just "log feature works")
+5. Show the PRD: **"Here's the PRD with acceptance criteria. Anything to change?"**
+6. Edit until user says it's good.
 
 ---
 
-## Step 4: UI/UX Design
+## Step 4: Project Boundaries & Non-Functionals
+
+Scope it before you build it. Ask the user:
+
+> **"Before we design the UI, let's set boundaries. Quick answers for each:"**
+> - **Privacy:** What user data are you touching? Any sensitive info?
+> - **Security:** Does this need auth? Roles? What's exposed publicly?
+> - **Performance:** Any hard speed limits? (e.g. page load < 2s)
+> - **Scale:** How many users do you expect? 10? 1000? 100k?
+
+If the user says "skip" or "don't know", fill in sensible defaults for an MVP and note them.
+
+Add a `## Boundaries & Non-Functionals` section to `docs/PRD.md`:
+
+```markdown
+## Boundaries & Non-Functionals
+- **Privacy:** [answer]
+- **Security:** [answer]
+- **Performance:** [answer]
+- **Scale:** [answer]
+```
+
+Show: **"Here are the project boundaries. Look right?"**
+Edit until approved.
+
+---
+
+## Step 5: UI/UX Design
 
 Design the UI **with the user**:
 
-1. Ask: **"What kind of interface? Dashboard, landing page, mobile app, CLI? Any design references or sites you like?"**
-2. Ask: **"Walk me through the main user flow — what does someone do when they open the app?"**
-3. Draft `docs/UI-DESIGN.md`:
+1. Ask: **"What kind of interface? Dashboard, landing page, mobile app, CLI?"**
+2. **Reference the web (IMPORTANT):** Ask: **"Show me 1-2 websites or apps that have the vibe/layout you want. Drop a URL or name and I'll look it up."** If the user provides references, use WebFetch to grab them, screenshot key patterns, and document them in UI-DESIGN.md. Don't invent UI from scratch — borrow from established products.
+3. Ask: **"Walk me through the main user flow — what does someone do when they open the app?"**
+4. If the user provides reference URLs, use WebFetch to capture the page and document key UI patterns (layout, nav, card styles, colour scheme) in the UI-DESIGN doc.
+5. Draft `docs/UI-DESIGN.md`:
 
 ```markdown
 # UI Design: [Idea Name]
@@ -145,7 +178,7 @@ Design the UI **with the user**:
 
 ---
 
-## Step 5: Architecture
+## Step 6: Architecture
 
 Draft the architecture doc based on PRD and UI decisions:
 
@@ -177,7 +210,7 @@ Draft the architecture doc based on PRD and UI decisions:
 
 ---
 
-## Step 6: Scaffold Project
+## Step 7: Scaffold Project
 
 Set up the actual project files:
 
@@ -189,7 +222,7 @@ Set up the actual project files:
 
 ---
 
-## Step 7: Output Context Documents
+## Step 8: Output Context Documents
 
 Generate three documents that serve as the **coding context** for the vibe-harness autonomous loop:
 
@@ -216,7 +249,7 @@ The Generator agent MUST update these docs as part of each cycle when relevant c
 
 ---
 
-## Step 8: Development Standards & Reference
+## Step 9: Development Standards & Reference
 
 Establish coding standards and reference materials for the AI to follow during autonomous coding.
 
@@ -269,7 +302,7 @@ Edit until approved.
 
 ---
 
-## Step 9: Git Init & Quality Gates
+## Step 10: Git Init & Quality Gates
 
 Set up version control and quality checks for the vibe-harness to use.
 
@@ -312,7 +345,7 @@ Edit until approved.
 
 ---
 
-## Step 10: Handoff
+## Step 11: Handoff
 
 Print this message:
 
